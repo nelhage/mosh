@@ -199,16 +199,7 @@ const std::vector< int > Connection::fds( void ) const
 
 void Connection::set_MTU( int family )
 {
-  switch ( family ) {
-  case AF_INET:
-    MTU = DEFAULT_IPV4_MTU - IPV4_HEADER_LEN;
-    break;
-  case AF_INET6:
-    MTU = DEFAULT_IPV6_MTU - IPV6_HEADER_LEN;
-    break;
-  default:
-    throw NetworkException( "Unknown address family", 0 );
-  }
+  MTU = DEFAULT_IPV6_MTU - IPV6_HEADER_LEN;
 }
 
 class AddrInfo {
